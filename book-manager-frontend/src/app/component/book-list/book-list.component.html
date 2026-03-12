@@ -1,0 +1,89 @@
+<!-- Toolbar -->
+<div class="list-toolbar">
+  <div class="list-meta">
+    <h2 class="list-heading">Collection</h2>
+    <span class="book-count" *ngIf="!loading">
+      {{ books.length }} book{{ books.length !== 1 ? 's' : '' }}
+    </span>
+  </div>
+  <button class="btn btn-primary" (click)="openAddForm()" [disabled]="showForm">
+    <span class="btn-icon">＋</span> Add Book
+  </button>
+</div>
+
+<!-- ✅ AddBookFormComponent rendered here -->
+<div class="form-panel" *ngIf="showForm">
+  <app-book-form
+    [editingBook]="editingBook"
+    (saved)="onFormSaved($event)"
+    (cancelled)="cancelForm()">
+  </app-book-form>
+</div>
+
+<!-- Error Banner -->
+<div class="error-banner" *ngIf="error">
+  <span>⚠️ {{ error }}</span>
+  <button class="error-retry" (click)="loadBooks()">Retry</button>
+</div>
+
+<!-- Loading Skeleton -->
+<div class="skeleton-grid" *ngIf="loading">
+  <div class="skeleton-card" *ngFor="let i of [1, 2, 3]">
+    <div class="sk sk-title"></div>
+    <div class="sk sk-author"></div>
+    <div class="sk sk-row"></div>
+    <div class="sk sk-row sk-short"></div>
+  </div>
+</div>
+
+<!-- Empty State -->
+<div class="empty-state" *ngIf="!loading && !error && books.length === 0">
+  <div class="empty-icon">📖</div>
+  <h3>Your library is empty</h3>
+  <p>Add your first book to get started.</p>
+  <button class="btn btn-primary" (click)="openAddForm()">Add a Book</button>
+</div>
+
+<!-- Book Cards Grid -->
+<div class="books-grid" *ngIf="!loading && books.length > 0">
+  <article class="book-card" *ngFor="let book of books">
+    <div class="card-spine"></div>
+    <div class="card-body">
+      <header class="card-header">
+        <h3 class="card-title">{{ book.title }}</h3>
+        <p class="card-author">{{ book.author }}</p>
+      </header>
+      <div class="card-meta">
+        <div class="meta-row">
+          <span class="meta-label">ISBN</span>
+          <span class="meta-value isbn">{{ book.isbn }}</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Published</span>
+          <span class="meta-value">{{ formatDate(book.publicationDate) }}</span>
+        </div>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-secondary btn-sm" (click)="openEditForm(book)">
+          ✏️ Edit
+        </button>
+        <button class="btn btn-danger btn-sm" (click)="requestDelete(book.id)">
+          🗑️ Delete
+        </button>
+      </div>
+    </div>
+  </article>
+</div>
+
+<!-- Confirm Delete Modal -->
+<div class="modal-overlay" *ngIf="confirmDeleteId !== null" (click)="cancelDelete()">
+  <div class="modal" (click)="$event.stopPropagation()">
+    <div class="modal-icon">🗑️</div>
+    <h3 class="modal-title">Delete this book?</h3>
+    <p class="modal-body">This action cannot be undone.</p>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" (click)="cancelDelete()">Cancel</button>
+      <button class="btn btn-danger"    (click)="confirmDelete()">Yes, Delete</button>
+    </div>
+  </div>
+</div>

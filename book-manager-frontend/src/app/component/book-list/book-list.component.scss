@@ -1,0 +1,441 @@
+
+$cream:        #f5f0e8;
+$parchment:    #ede4d0;
+$warm-white:   #faf8f4;
+$burgundy:     #7b2d42;
+$burgundy-dk:  #5c1e30;
+$burgundy-lt:  #a34560;
+$gold:         #c9943a;
+$gold-lt:      #e8c070;
+$ink:          #1a1410;
+$ink-mid:      #3d342a;
+$ink-light:    #7a6e63;
+$shadow:       rgba(26, 20, 16, 0.12);
+$shadow-lg:    rgba(26, 20, 16, 0.22);
+$danger:       #c0392b;
+$danger-dk:    #a93226;
+
+$font-serif:   'Playfair Display', Georgia, serif;
+$font-sans:    'Lato', sans-serif;
+$radius:       6px;
+$radius-lg:    12px;
+$tr:           0.22s ease;
+
+
+$spines: (
+  0: (from: $burgundy,      to: $gold),
+  1: (from: #2d5a7b,        to: #43a39a),
+  2: (from: #4a7b2d,        to: #9ac943),
+  3: (from: #7b2d6e,        to: #c943b8),
+  4: (from: #7b5a2d,        to: #c98a43),
+);
+
+@each $i, $colors in $spines {
+  .spine-#{$i} {
+    background: linear-gradient(180deg, map-get($colors, from), map-get($colors, to));
+  }
+}
+
+
+.list-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.list-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.list-heading {
+  font-family: $font-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: $burgundy-dk;
+}
+
+.book-count {
+  font-size: 0.8rem;
+  color: $ink-light;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: $radius;
+  cursor: pointer;
+  font-family: $font-sans;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  transition: background $tr, transform $tr, box-shadow $tr;
+
+  &:disabled { opacity: 0.45; cursor: not-allowed; }
+  &:not(:disabled):active { transform: translateY(1px); }
+
+  &.btn-primary {
+    background: $burgundy;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(123, 45, 66, 0.3);
+    &:hover { background: $burgundy-dk; box-shadow: 0 4px 12px rgba(123, 45, 66, 0.4); }
+  }
+
+  &.btn-secondary {
+    background: $parchment;
+    color: $ink-mid;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    &:hover { background: $cream; }
+  }
+
+  &.btn-danger {
+    background: $danger;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(192, 57, 43, 0.25);
+    &:hover { background: $danger-dk; }
+  }
+
+  &.btn-sm { padding: 7px 14px; font-size: 0.8rem; }
+}
+
+.btn-icon { font-size: 1rem; font-weight: 400; }
+
+/* Form Panel */
+.form-panel {
+  margin-bottom: 32px;
+  animation: slideDown 0.25s ease-out;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.form-card {
+  background: $warm-white;
+  border: 1px solid $parchment;
+  border-top: 3px solid $gold;
+  border-radius: $radius-lg;
+  padding: 28px 28px 24px;
+  box-shadow: 0 4px 16px $shadow;
+}
+
+.form-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid $parchment;
+}
+
+.form-icon { font-size: 1.8rem; }
+
+.form-title {
+  font-family: $font-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: $burgundy-dk;
+  line-height: 1.2;
+}
+
+.form-subtitle {
+  font-size: 0.8rem;
+  color: $ink-light;
+  margin-top: 2px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+
+  @media (max-width: 520px) { grid-template-columns: 1fr; }
+}
+
+.field-full { grid-column: 1 / -1; }
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.field-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: $ink-mid;
+}
+
+.required { color: $burgundy; }
+
+.field-input {
+  padding: 10px 13px;
+  border: 1.5px solid $parchment;
+  border-radius: $radius;
+  font-family: $font-sans;
+  font-size: 0.92rem;
+  color: $ink;
+  background: $cream;
+  outline: none;
+  width: 100%;
+  transition: border-color $tr, box-shadow $tr, background $tr;
+
+  &:focus {
+    border-color: $burgundy;
+    box-shadow: 0 0 0 3px rgba(123, 45, 66, 0.1);
+    background: #fff;
+  }
+
+  &.invalid {
+    border-color: $danger;
+    box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.1);
+  }
+
+  &.mono { font-family: monospace; font-size: 0.88rem; }
+}
+
+.field-error {
+  font-size: 0.77rem;
+  color: $danger;
+  font-weight: 600;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 16px;
+  border-top: 1px solid $parchment;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 80px 32px;
+  color: $ink-light;
+
+  .empty-icon {
+    font-size: 4rem;
+    margin-bottom: 16px;
+    opacity: 0.6;
+  }
+
+  h3 {
+    font-family: $font-serif;
+    font-size: 1.4rem;
+    color: $ink-mid;
+    margin-bottom: 8px;
+  }
+
+  p { margin-bottom: 24px; font-size: 0.95rem; }
+}
+
+/* Book Grid */
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+
+  @media (max-width: 480px) { grid-template-columns: 1fr; }
+}
+
+/* Book Card */
+.book-card {
+  display: flex;
+  background: $warm-white;
+  border-radius: $radius-lg;
+  border: 1px solid $parchment;
+  overflow: hidden;
+  box-shadow: 0 2px 8px $shadow;
+  transition: box-shadow $tr, transform $tr;
+  animation: cardIn 0.3s ease both;
+
+  &:hover {
+    box-shadow: 0 6px 20px $shadow-lg;
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+// Spine
+.card-spine {
+  width: 6px;
+  flex-shrink: 0;
+}
+
+/* Content */
+.card-body {
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.card-title {
+  font-family: $font-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: $ink;
+  margin-bottom: 4px;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-author {
+  font-size: 0.88rem;
+  color: $burgundy;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-top: 1px solid $parchment;
+  padding-top: 12px;
+}
+
+.meta-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 0.82rem;
+}
+
+.meta-label {
+  color: $ink-light;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-size: 0.72rem;
+  min-width: 62px;
+  flex-shrink: 0;
+}
+
+.meta-value {
+  color: $ink-mid;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &.isbn { font-family: monospace; font-size: 0.8rem; }
+}
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid $parchment;
+}
+
+/* Modal & Toast */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 20, 16, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(3px);
+  animation: fadeIn 0.18s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.modal {
+  background: $warm-white;
+  border-radius: $radius-lg;
+  padding: 40px 36px;
+  max-width: 380px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+  animation: popIn 0.22s ease;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.92); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+.modal-icon { font-size: 2.4rem; margin-bottom: 16px; }
+
+.modal-title {
+  font-family: $font-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: $ink;
+  margin-bottom: 8px;
+}
+
+.modal-body {
+  color: $ink-light;
+  font-size: 0.9rem;
+  margin-bottom: 28px;
+
+  strong { color: $ink-mid; }
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+/*Toast Notification*/
+.toast {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  background: $ink-mid;
+  color: #fff;
+  padding: 13px 20px;
+  border-radius: $radius;
+  font-size: 0.88rem;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  z-index: 2000;
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  &.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  &.toast-success { background: #2e7d51; }
+  &.toast-error   { background: $danger; }
+}
