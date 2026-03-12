@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("book-manager-backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+66cb740e96924c3e397c67103ef2690fe89c7b09")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ae2cc03d7cc72f6947f29256863f65b45737e01f")]
 [assembly: System.Reflection.AssemblyProductAttribute("book-manager-backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("book-manager-backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

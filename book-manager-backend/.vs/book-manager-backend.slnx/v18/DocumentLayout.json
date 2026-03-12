@@ -1,7 +1,28 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "E:\\Enhanzer Project\\book-manager-website\\book-manager-backend\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D65B6E68-C355-9E5B-2C25-0BF414BC9FF7}|book-manager-backend.csproj|e:\\enhanzer project\\book-manager-website\\book-manager-backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D65B6E68-C355-9E5B-2C25-0BF414BC9FF7}|book-manager-backend.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D65B6E68-C355-9E5B-2C25-0BF414BC9FF7}|book-manager-backend.csproj|e:\\enhanzer project\\book-manager-website\\book-manager-backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D65B6E68-C355-9E5B-2C25-0BF414BC9FF7}|book-manager-backend.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D65B6E68-C355-9E5B-2C25-0BF414BC9FF7}|book-manager-backend.csproj|e:\\enhanzer project\\book-manager-website\\book-manager-backend\\models\\books.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D65B6E68-C355-9E5B-2C25-0BF414BC9FF7}|book-manager-backend.csproj|solutionrelative:models\\books.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D65B6E68-C355-9E5B-2C25-0BF414BC9FF7}|book-manager-backend.csproj|e:\\enhanzer project\\book-manager-website\\book-manager-backend\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D65B6E68-C355-9E5B-2C25-0BF414BC9FF7}|book-manager-backend.csproj|solutionrelative:controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D65B6E68-C355-9E5B-2C25-0BF414BC9FF7}|book-manager-backend.csproj|e:\\enhanzer project\\book-manager-website\\book-manager-backend\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D65B6E68-C355-9E5B-2C25-0BF414BC9FF7}|book-manager-backend.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -18,6 +39,71 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\Enhanzer Project\\book-manager-website\\book-manager-backend\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "E:\\Enhanzer Project\\book-manager-website\\book-manager-backend\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-12T19:54:31.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\Enhanzer Project\\book-manager-website\\book-manager-backend\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "E:\\Enhanzer Project\\book-manager-website\\book-manager-backend\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-12T19:54:28.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Books.cs",
+              "DocumentMoniker": "E:\\Enhanzer Project\\book-manager-website\\book-manager-backend\\Models\\Books.cs",
+              "RelativeDocumentMoniker": "Models\\Books.cs",
+              "ToolTip": "E:\\Enhanzer Project\\book-manager-website\\book-manager-backend\\Models\\Books.cs*",
+              "RelativeToolTip": "Models\\Books.cs*",
+              "ViewState": "AgIAAAkAAAAAAAAAAAA1wA4AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-12T19:53:21.125Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BookController.cs",
+              "DocumentMoniker": "E:\\Enhanzer Project\\book-manager-website\\book-manager-backend\\Controllers\\BookController.cs",
+              "RelativeDocumentMoniker": "Controllers\\BookController.cs",
+              "ToolTip": "E:\\Enhanzer Project\\book-manager-website\\book-manager-backend\\Controllers\\BookController.cs*",
+              "RelativeToolTip": "Controllers\\BookController.cs*",
+              "ViewState": "AgIAABkAAAAAAAAAAAAQwDsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-12T19:52:34.501Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "E:\\Enhanzer Project\\book-manager-website\\book-manager-backend\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "E:\\Enhanzer Project\\book-manager-website\\book-manager-backend\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-12T19:52:23.942Z",
+              "EditorCaption": ""
             }
           ]
         }

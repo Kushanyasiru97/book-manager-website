@@ -1,6 +1,8 @@
 <div class="form-card">
   <div class="form-card-header">
-    <span class="form-icon"></span>
+    <span class="form-icon">
+      <i [class]="isEdit ? 'pi pi-pen-to-square' : 'pi pi-book'"></i>
+    </span>
     <div>
       <h2 class="form-title">{{ isEdit ? 'Edit Book' : 'Add New Book' }}</h2>
       <p class="form-subtitle">{{ isEdit ? 'Update the details below' : 'Fill in the book details below' }}</p>
@@ -19,7 +21,7 @@
           class="field-input"
           [class.invalid]="isInvalid('title')"
           formControlName="title"
-          placeholder="e.g. The Great Gatsby"
+          placeholder="Enter book title"
           autocomplete="off">
         <span class="field-error" *ngIf="isInvalid('title')">Title is required.</span>
       </div>
@@ -33,7 +35,7 @@
           class="field-input"
           [class.invalid]="isInvalid('author')"
           formControlName="author"
-          placeholder="e.g. F. Scott Fitzgerald"
+          placeholder="Enter author name"
           autocomplete="off">
         <span class="field-error" *ngIf="isInvalid('author')">Author is required.</span>
       </div>
@@ -45,11 +47,10 @@
           id="isbn"
           type="text"
           class="field-input mono"
-          [class.invalid]="isInvalid('isbn')"
           formControlName="isbn"
-          placeholder="978-0000000000"
+          placeholder="Enter ISBN number"
           autocomplete="off">
-        <span class="field-error" *ngIf="isInvalid('isbn')">Enter a valid ISBN-10 or ISBN-13.</span>
+        <span class="field-error" *ngIf="isInvalid('isbn')">ISBN is required</span>
       </div>
 
       <!-- Publication Date -->
@@ -64,17 +65,17 @@
         <span class="field-error" *ngIf="isInvalid('publicationDate')">Publication date is required.</span>
       </div>
 
-    </div><!-- /form-grid -->
+    </div>
 
     <!-- Submit error -->
-    <div class="submit-error" *ngIf="submitError">⚠️ {{ submitError }}</div>
+    <div class="submit-error" *ngIf="submitError">{{ submitError }}</div>
 
     <!-- Actions -->
     <div class="form-actions">
       <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
-      <button type="submit" class="btn btn-primary" [disabled]="submitting">
+      <button type="submit" class="btn btn-primary" [disabled]="submitting || form.invalid">
         <span *ngIf="submitting" class="spinner"></span>
-        {{ submitting ? 'Saving…' : (isEdit ? 'Update Book' : 'Add Book') }}
+        {{ submitting ? 'Saving…' : (isEdit ? 'Update' : 'Add') }}
       </button>
     </div>
   </form>

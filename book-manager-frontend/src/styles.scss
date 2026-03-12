@@ -1,1 +1,51 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --cream:       #f5f0e8;
+  --parchment:   #ede4d0;
+  --warm-white:  #faf8f4;
+  --burgundy:    #7b2d42;
+  --burgundy-dk: #5c1e30;
+  --burgundy-lt: #a34560;
+  --gold:        #c9943a;
+  --gold-lt:     #e8c070;
+  --ink:         #1a1410;
+  --ink-mid:     #3d342a;
+  --ink-light:   #7a6e63;
+  --shadow:      rgba(26,20,16,0.12);
+  --shadow-lg:   rgba(26,20,16,0.22);
+
+  --font-serif:  'Playfair Display', Georgia, serif;
+  --font-sans:   'Inter', sans-serif;
+
+  --radius:      6px;
+  --radius-lg:   12px;
+  --transition:  0.22s ease;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--font-sans);
+  background-color: var(--cream);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--parchment); }
+::-webkit-scrollbar-thumb { background: var(--burgundy); border-radius: 4px; }
+
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; overflow: hidden; clip: rect(0,0,0,0);
+  border: 0;
+}

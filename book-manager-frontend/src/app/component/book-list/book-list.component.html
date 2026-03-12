@@ -2,33 +2,22 @@
 <div class="list-toolbar">
   <div class="list-meta">
     <h2 class="list-heading">Collection</h2>
-    <span class="book-count" *ngIf="!loading">
-      {{ books.length }} book{{ books.length !== 1 ? 's' : '' }}
-    </span>
+    <span class="book-count" *ngIf="!loading">{{ books.length }} book{{ books.length !== 1 ? 's' : '' }}</span>
   </div>
   <button class="btn btn-primary" (click)="openAddForm()" [disabled]="showForm">
-    <span class="btn-icon">＋</span> Add Book
+    <i class="pi pi-plus-circle"></i> Add Book
   </button>
-</div>
-
-<!-- ✅ AddBookFormComponent rendered here -->
-<div class="form-panel" *ngIf="showForm">
-  <app-book-form
-    [editingBook]="editingBook"
-    (saved)="onFormSaved($event)"
-    (cancelled)="cancelForm()">
-  </app-book-form>
 </div>
 
 <!-- Error Banner -->
 <div class="error-banner" *ngIf="error">
-  <span>⚠️ {{ error }}</span>
+  <span>{{ error }}</span>
   <button class="error-retry" (click)="loadBooks()">Retry</button>
 </div>
 
 <!-- Loading Skeleton -->
 <div class="skeleton-grid" *ngIf="loading">
-  <div class="skeleton-card" *ngFor="let i of [1, 2, 3]">
+  <div class="skeleton-card" *ngFor="let i of [1,2,3]">
     <div class="sk sk-title"></div>
     <div class="sk sk-author"></div>
     <div class="sk sk-row"></div>
@@ -46,8 +35,7 @@
 
 <!-- Book Cards Grid -->
 <div class="books-grid" *ngIf="!loading && books.length > 0">
-  <article class="book-card" *ngFor="let book of books">
-    <div class="card-spine"></div>
+  <article class="book-card" *ngFor="let book of books; let i = index">
     <div class="card-body">
       <header class="card-header">
         <h3 class="card-title">{{ book.title }}</h3>
@@ -65,25 +53,37 @@
       </div>
       <div class="card-actions">
         <button class="btn btn-secondary btn-sm" (click)="openEditForm(book)">
-          ✏️ Edit
+          <i class="pi pi-pen-to-square"></i> Edit
         </button>
         <button class="btn btn-danger btn-sm" (click)="requestDelete(book.id)">
-          🗑️ Delete
+          <i class="pi pi-trash"></i> Delete
         </button>
       </div>
     </div>
   </article>
 </div>
 
-<!-- Confirm Delete Modal -->
 <div class="modal-overlay" *ngIf="confirmDeleteId !== null" (click)="cancelDelete()">
   <div class="modal" (click)="$event.stopPropagation()">
-    <div class="modal-icon">🗑️</div>
+    <div class="modal-icon"><i class="pi pi-trash "></i></div>
     <h3 class="modal-title">Delete this book?</h3>
     <p class="modal-body">This action cannot be undone.</p>
     <div class="modal-actions">
-      <button class="btn btn-secondary" (click)="cancelDelete()">Cancel</button>
-      <button class="btn btn-danger"    (click)="confirmDelete()">Yes, Delete</button>
+      <button class="btn btn-cancel" (click)="cancelDelete()">Cancel</button>
+      <button class="btn btn-danger" (click)="confirmDelete()">Yes, Delete</button>
     </div>
+  </div>
+</div>
+
+
+<div class="drawer-overlay" *ngIf="showForm" (click)="onFormCancelled()"></div>
+
+<div class="drawer" [class.drawer-open]="showForm">
+  <div class="drawer-inner">
+    <app-add-book-form
+      [editingBook]="editingBook"
+      (saved)="onFormSaved()"
+      (cancelled)="onFormCancelled()">
+    </app-add-book-form>
   </div>
 </div>

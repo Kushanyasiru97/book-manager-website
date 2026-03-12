@@ -1,0 +1,107 @@
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.site-header {
+  background: #001a4c;
+  color: #fff;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 16px var(--shadow-lg);
+}
+
+.header-inner {
+  max-width: auto;
+  margin: 0 auto;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand-icon {
+  font-size: 2.4rem;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.brand-title {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+  color: white;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+.brand-sub {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  margin-top: 2px;
+}
+
+
+.header-decoration {
+  width: 180px;
+  height: 2px;
+  background: linear-gradient(to right, var(--gold), transparent);
+  border-radius: 2px;
+  opacity: 0.6;
+}
+
+
+.site-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 18px,
+    rgba(255,255,255,0.025) 18px,
+    rgba(255,255,255,0.025) 19px
+  );
+}
+
+
+.site-main {
+  flex: 1;
+  max-width: auto;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 32px;
+}
+
+
+.site-footer {
+  background: #002366 ;
+  color: var(--ink-light);
+  text-align: center;
+  padding: 16px 32px;
+  font-size: 0.78rem;
+  letter-spacing: 0.5px;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .header-inner { padding: 20px 16px; }
+  .brand-title { font-size: 1.5rem; }
+  .header-decoration { display: none; }
+  .site-main { padding: 24px 16px; }
+}
